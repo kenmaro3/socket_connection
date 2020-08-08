@@ -1,0 +1,19 @@
+//pip install protobuf==3.12.2 grpcio==1.30.0 grpcio-tools==1.30.0
+//python -m grpc_tools.protoc -I./ --python_out=. --grpc_python_out=. ./test.proto
+
+syntax = "proto3";
+
+service MyGrpc {
+    // なにかを受け取るRPC（xx_pb2_proto.pyのコメントとして使用される）
+    rpc GetSomething (MyReq) returns (MyResp) {}
+}
+
+message MyReq {
+    int32 int_param = 1;
+    string str_param = 2;
+}
+
+message MyResp {
+    int32 status = 1;
+    string message = 2;
+}  
