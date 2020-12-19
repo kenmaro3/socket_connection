@@ -20,6 +20,7 @@ class MyGrpc(test_pb2_grpc.MyGrpcServicer):
         # データ取得は`request.xxx`でできて分かりやすい
         print(f'int_param: {request.int_param}')
         print(f'str_param: {request.str_param}')
+        print(type(request))
 
         # 必ず設定したresponseを返却する
         response = test_pb2.MyResp(status=200, message="Great message.")
